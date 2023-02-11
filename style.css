@@ -1,10 +1,29 @@
-.button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
+header {
+    font-family: "Arial Rounded MT Bold", Helvetica, sans-serif
+    font-weight: bold;
+   font-size: xxx-large;
+   position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 500px;
+}
+body {
+background-color: #ace7ff;
+}
+
+.hme-btn {
+    color: rgb(255, 255, 255);
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    top: 50%;
+    left: 50%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
   }
+
+.hme-btn:hover{
+    text-decoration: underline;
+}
