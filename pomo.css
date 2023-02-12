@@ -1,4 +1,7 @@
-.button-1 {
+.pmt-page {
+    background-color: rgb(230, 187, 187);
+
+}.button-1 {
     display: inline-block;
     outline: 0;
     border: 0;
@@ -21,17 +24,16 @@
         box-shadow: inset 0px 3px 7px #d6d6e7;
         transform: translateY(2px);
     }
-    
   }
-  
   .button-1:hover {
     background-color: #dee3ec;
     color: #fff;
   }
 
-  div {
-    font-size: 27px;
-  }
+ .displaytime {
+    font-size: 50px;
+ } 
+ 
   .pmt-btn {
     color: rgb(255, 255, 255);
     text-decoration: none;
@@ -42,8 +44,15 @@
     top: 20%;
     left: 20%;
     position: relative;
-
+    display: flex;
   }
+
+.jc-center {
+    justify-content: center;
+}
+.ta-center {
+    text-align: center;
+}
 
 .pmt-btn:hover{
     text-decoration: underline;
@@ -54,6 +63,3 @@
     text-decoration: none;
 }
 
-.pmt-page {
-    background-color: rgb(230, 187, 187);
-}

@@ -8,27 +8,55 @@
     <link rel="stylesheet" type="text/css" href="pomo.css" />
     <title>Document</title>
 </head>
-    <body class="pmt-page">
-      <a class="pmt-btn" href="flashcards.html">Flashcards</a>
-      <a class="pmt-btn" href="pomotimer.html">Pomodoro</a>
-      <a class="pmt-btn" href="alerts.html">Alerts</a>
+    
+<body class="pmt-page">
 
-        <div id="timer">25:00</div>
-        <button class="button-1" id="start">Start</button>
-        <button class="button-1" id="stop">Stop</button>
-        <button class="button-1" id="reset">Reset</button>
+
+      <!--REDIRECTORY BUTTONS-->
+      <div class="jc-center ta-center">
+        <a href="flashcards.html">Flashcards</a>
+        <a href="pomotimer.html">Pomodoro</a>
+        <a href="alerts.html">Alerts</a>
+      </div>
+     
+      
+      <!-- POMODORO, LONG BREAK, SHORT BREAK-->
+      <div class="jc-center ta-center ">
+        <button id="pomodoro-btn">Pomodoro</button>
+        <button id="short-break-btn">Short Break</button>
+        <button id="long-break-btn">Long Break</button> 
+      </div>
+
+
+      <!--TIMER DISPLAY, START / STOP / RESET-->
+        <div class="jc-center ta-center displaytime " id="timer">25:00</div>
+        <div class="runningtime">
+          <button class="button-1" id="start">Start</button>
+          <button class="button-1" id="stop">Stop</button>
+          <button class="button-1" id="reset">Reset</button>  
+
+        </div>
+        
+        
+        <!--TIMER SCRIPT-->
         <script>
           const startButton = document.getElementById("start");
           const stopButton = document.getElementById("stop");
           const resetButton = document.getElementById("reset");
           const timerDisplay = document.getElementById("timer");
-    
+          const shortBreakBtn = document.getElementById("short-break-btn");
+          const longBreakBtn = document.getElementById("long-break-btn");
+          const pomodoroBtn = document.getElementById("pomodoro-btn");
+          
           let timer;
           let seconds = 1500; // 25 minutes 
       
           startButton.addEventListener("click", startTimer);
           stopButton.addEventListener("click", stopTimer);
           resetButton.addEventListener("click", resetTimer);
+          shortBreakBtn.addEventListener("click", startShortBreak);
+          longBreakBtn.addEventListener("click", startLongBreak);
+          pomodoroBtn.addEventListener("click", startPomodoro);
       
           function startTimer() {
             timer = setInterval(function() {
@@ -55,6 +83,25 @@
             seconds = 1500;
             displayTime();
           }
+
+          function startShortBreak() {
+            stopTimer();
+            seconds = 300;
+            displayTime();
+  }
+
+  function startLongBreak() {
+            stopTimer();
+            seconds = 600;
+            displayTime();
+  }
+
+
+  function startPomodoro() {
+            stopTimer();
+            seconds = 1500;
+            displayTime();
+  }
       
           function displayTime() {
             let minutes = Math.floor(seconds / 60);
