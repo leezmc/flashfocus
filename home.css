@@ -1,0 +1,25 @@
+.landpage {
+background-color: #bee8f8;
+}
+
+.hme-btn {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transform: translate(-50%, -50%);
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.5;
+    top: 20%;
+    left: 20%;
+    position: relative;
+
+  }
+
+.hme-btn:hover{
+    text-decoration: underline;
+    color: #54b3d6;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-decoration: none;
+}

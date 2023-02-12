@@ -1,12 +1,66 @@
+<!--POMODORO TIMER-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="pomo.css" />
     <title>Document</title>
 </head>
-<body>
+    <body class="pmt-page">
+      <a class="pmt-btn" href="flashcards.html">Flashcards</a>
+      <a class="pmt-btn" href="pomotimer.html">Pomodoro</a>
+      <a class="pmt-btn" href="alerts.html">Alerts</a>
+
+        <div id="timer">25:00</div>
+        <button class="button-1" id="start">Start</button>
+        <button class="button-1" id="stop">Stop</button>
+        <button class="button-1" id="reset">Reset</button>
+        <script>
+          const startButton = document.getElementById("start");
+          const stopButton = document.getElementById("stop");
+          const resetButton = document.getElementById("reset");
+          const timerDisplay = document.getElementById("timer");
     
-</body>
+          let timer;
+          let seconds = 1500; // 25 minutes 
+      
+          startButton.addEventListener("click", startTimer);
+          stopButton.addEventListener("click", stopTimer);
+          resetButton.addEventListener("click", resetTimer);
+      
+          function startTimer() {
+            timer = setInterval(function() {
+              seconds--;
+              displayTime();
+      
+              if (seconds === 0) {
+                stopTimer();
+                alert("Time's up! Take a break!");
+              }
+            }, 1000);
+            startButton.disabled = true;
+            stopButton.disabled = false;
+          }
+      
+          function stopTimer() {
+            clearInterval(timer);
+            startButton.disabled = false;
+            stopButton.disabled = true;
+          }
+      
+          function resetTimer() {
+            stopTimer();
+            seconds = 1500;
+            displayTime();
+          }
+      
+          function displayTime() {
+            let minutes = Math.floor(seconds / 60);
+            let remainingSeconds = seconds % 60;
+            timerDisplay.innerHTML = `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+          }
+        </script>
+      </body>
 </html>
