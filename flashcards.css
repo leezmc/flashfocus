@@ -41,7 +41,7 @@ header{background-color: #d8ffd6;}
 
 #header button{
   font-family: inherit;
-  border: 1px solid red;
+  border: 1px solid rgb(0, 0, 0);
 }
 
 #create_card{
@@ -101,7 +101,7 @@ header{background-color: #d8ffd6;}
   transition: 0.3s ease-out;
 }
 
-.fa-minus:hover{color: red;}
+.fa-minus:hover{color: #d8ffd6;}
 
 @media(max-width:1280px){
   .container{width: 100%;}
