@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="pomo.css" />
-    <title id="timer">25:00</title>
+    <title>Document</title>
 </head>
     
 <body class="pmt-page">
+
 
       <!--REDIRECTORY BUTTONS-->
       <div class="jc-center ta-center pmt-btn">
@@ -18,12 +19,14 @@
         <a href="alerts.html">Alerts</a>
       </div>
      
+      
       <!-- POMODORO, LONG BREAK, SHORT BREAK-->
       <div class="jc-center ta-center longshort">
         <button class="button-2" id="pomodoro-btn">Pomodoro</button>
         <button class="button-2" id="short-break-btn">Short Break</button>
         <button class="button-2" id="long-break-btn">Long Break</button> 
       </div>
+
 
       <!--TIMER DISPLAY, START / STOP / RESET-->
        <div class="fulltime">
@@ -34,9 +37,77 @@
           <button class="button-1" id="reset">Reset</button> 
         </div>
       </div>
-
+        
         <!--TIMER SCRIPT-->
-        <script src="pomo.js"></script>
+        <script>
+          const startButton = document.getElementById("start");
+          const stopButton = document.getElementById("stop");
+          const resetButton = document.getElementById("reset");
+          const timerDisplay = document.getElementById("timer");
+          const shortBreakBtn = document.getElementById("short-break-btn");
+          const longBreakBtn = document.getElementById("long-break-btn");
+          const pomodoroBtn = document.getElementById("pomodoro-btn");
+          
+          let timer;
+          let seconds = 1500; // 25 minutes 
       
+          startButton.addEventListener("click", startTimer);
+          stopButton.addEventListener("click", stopTimer);
+          resetButton.addEventListener("click", resetTimer);
+          shortBreakBtn.addEventListener("click", startShortBreak);
+          longBreakBtn.addEventListener("click", startLongBreak);
+          pomodoroBtn.addEventListener("click", startPomodoro);
+      
+          function startTimer() {
+            timer = setInterval(function() {
+              seconds--;
+              displayTime();
+      
+              if (seconds === 0) {
+                stopTimer();
+                alert("Time's up! Take a break!");
+              }
+            }, 1000);
+            startButton.disabled = true;
+            stopButton.disabled = false;
+          }
+      
+          function stopTimer() {
+            clearInterval(timer);
+            startButton.disabled = false;
+            stopButton.disabled = true;
+          }
+      
+          function resetTimer() {
+            stopTimer();
+            seconds = 1500;
+            displayTime();
+          }
+
+          function startShortBreak() {
+            stopTimer();
+            seconds = 300;
+            displayTime();
+  }
+
+  function startLongBreak() {
+            stopTimer();
+            seconds = 600;
+            displayTime();
+  }
+
+
+  function startPomodoro() {
+            stopTimer();
+            seconds = 1500;
+            displayTime();
+  }
+      
+          function displayTime() {
+            let minutes = Math.floor(seconds / 60);
+            let remainingSeconds = seconds % 60;
+            timerDisplay.innerHTML = `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+          }
+        </script>
       </body>
 </html>
