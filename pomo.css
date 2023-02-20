@@ -5,27 +5,15 @@
 
 /* Start Stop and Reset Buttons*/
 .button-1 {
-    display: inline-block;
-    outline: 0;
     border: 0;
     cursor: pointer;
-    transition: box-shadow 0.15s ease,transform 0.15s ease;
-    will-change: box-shadow,transform;
     background: #FCFCFD;
-    box-shadow: 0px 2px 4px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #d6d6e7;
-    height: 48px;
-    padding: 0 32px;
+    padding: 0 44px;
     font-size: 18px;
-    border-radius: 6px;
+    border-radius: 4px;
     color: #36395a;
-    transition: box-shadow 0.15s ease,transform 0.15s ease;
     :hover {
-    box-shadow: 0px 4px 8px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #d6d6e7;
     transform: translateY(-2px);
-    }
-    :active{
-        box-shadow: inset 0px 3px 7px #d6d6e7;
-        transform: translateY(2px);
     }
   }
   .button-1:hover {
@@ -36,10 +24,9 @@
 /* Pomodoro Short Break and Long Break buttons*/
   .button-2 {
     border: none;
-    color: white;
+    color: rgb(255, 255, 255);
     margin: 0px;
     border-radius: 4px;
-    font-family: ArialRounded;
     font-size: 16px;
     padding: 2px 12px;
     height: 28px;
@@ -47,7 +34,6 @@
     background: none;
     box-shadow: none;
     font-weight: 300;
-    position: ;
     top: 20%;
     left: 50%;
     transform: translate(-50%, -20%);
@@ -72,25 +58,21 @@
 }
 
 .longshort {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+   border-radius: 25px;
+   justify-content: center;
+   align-items: center;
+   padding-top: 2%;
+   margin: 0 auto;
+
 }
 
 /* Timer Clock and Buttons*/
 .fulltime {
-    padding-top: 50px;
-   padding-bottom: 50px;
-   padding-left: 20px;
-   padding-right: 20px;
-    background-color: rgb(229, 209, 209);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    border-radius: 25px;
+   justify-content: center;
+   width: 400px;
+   height: 125px;
+   padding-top: 20%;
+   margin: 0 auto;
+   align-items: center;
 }

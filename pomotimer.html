@@ -11,7 +11,6 @@
     
 <body class="pmt-page">
 
-
       <!--REDIRECTORY BUTTONS-->
       <div class="jc-center ta-center pmt-btn">
         <a href="flashcards.html">Flashcards</a>
@@ -68,7 +67,7 @@
           
               if (seconds === 0) {
                 stopTimer();
-                alert("Time's up! Take a break!");
+                audio.play();
                 startShortBreak();
                 startTimer();
               }
