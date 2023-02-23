@@ -1,4 +1,4 @@
-/* Setting fade transition and default settings */
+
 body {
     color: #000;
     background-color: #f4f4f4;
@@ -7,17 +7,14 @@ body {
   
   /* panel styles */
   .panel {
-    /* min height incase content is higher than window height */
     min-height: 100vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-family: sans-serif;
-    /* outline: 10px solid hotpink; */
-    /* turn above on to see the edge of panels */
   }
   
-  /* colours */
+  /* page colors */
   .color-violet {
     background-color: #7A4EAB;
   }
@@ -40,27 +37,7 @@ body {
     background-color: #F2293A;
   }
   
-  /* styling for demo, can ignore */
-  body {
-    text-align: center;
-    font-size: 120%;
-    line-height: 1.618;
-  }
-  h1, h2 {
-    font-size: 3em;
-    letter-spacing: -0.05em;
-    line-height: 1.1;
-  }
-  p {
-    max-width: 30em;
-    margin-bottom: 1.618em;
-  }
-  a {
-    color: #4332CF;
-  }
 
-
-  @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 *{
     padding: 0;
     margin: 0;
@@ -71,7 +48,7 @@ h1{
 }
 
 body{
-    font-family: 'Varela Round', sans-serif;
+    font-family: sans-serif, Arial, Helvetica, sans-serif;
     font-size: 1rem;
     background-color: #d8ffd6;
 }
@@ -207,14 +184,17 @@ header{background-color: #d8ffd6;}
     font-size: 18px;
     border-radius: 4px;
     color: #36395a;
-    :hover {
-    transform: translateY(-2px);
-    }
+    transition:all .5s ease-in-out;
   }
   .button-1:hover {
-    background-color: #dee3ec;
+    background-color: #add8c4;
     color: #fff;
   }
+
+  .button-1{
+    transition:all .2s ease-in-out;
+  }
+
 
 /* Pomodoro Short Break and Long Break buttons*/
   .button-2 {
