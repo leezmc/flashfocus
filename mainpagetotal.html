@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Change background colour with fade animation as you scroll</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="mainpagetotal.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<div class="panel" data-color="indigo">
+    <h2>Flash Focus</h2>
+  </div>
+<div class="panel" data-color="white">
+        <div>
+            <div class="jc-center ta-center longshort">
+            <button class="button-2" id="pomodoro-btn" onclick="audio.play();">Pomodoro</button>
+            <button class="button-2" id="short-break-btn" onclick="audio.play();">Short Break</button>
+            <button class="button-2" id="long-break-btn" onclick="audio.play();">Long Break</button> 
+          </div>
+          <div class="jc-center ta-center displaytime" id="timer">25:00</div>
+        <div class="runningtime">
+          <button class="button-1" id="start" onclick="audio.play();">Start</button>
+          <button class="button-1" id="stop" onclick="audio.play();">Stop</button>
+          <button class="button-1" id="reset" onclick="audio.play();">Reset</button> 
+        </div>
+        <script src="pomotimer.js"></script>
+  </div>
+</div>
+<div class="panel" data-color="violet">
+    <div>
+        <button id="show_card_box" style="width:100px;height:85px;">+</button>
+        <button id="delete_cards" style="width:100px;height:85px;">-</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div id="create_card">
+      <h2>Create Flashcard</h2>
+      <label for="question">Term</label>
+      <textarea id="question" maxlength="280"></textarea>
+      <label for="answer" maxlength="280">Definition</label>
+      <br>
+      <textarea id="answer"></textarea>
+      <div>
+        <button id="save_card">Save</button> 
+        <button id="close_card_box">Close</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div id="flashcards"></div>
+  </div>
+</section>
+
+</main>
+
+<script src="flashcards.js"></script>
+</div>
+<div class="panel" data-color="indigo">
+  <h2>Indigo panel</h2>
+</div>
+<div class="panel" data-color="blue">
+  <h2>Blue panel</h2>
+</div>
+<div class="panel" data-color="green">
+  <h2>Green panel</h2>
+</div>
+<div class="panel" data-color="yellow">
+  <h2>Yellow panel</h2>
+</div>
+<div class="panel" data-color="orange">
+  <h2>Orange panel</h2>
+</div>
+<div class="panel" data-color="red">
+  <h2>Red panel</h2>
+</div>
+<!-- partial -->
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script  src="mainpagetotal.js"></script>
+
+</body>
+</html>

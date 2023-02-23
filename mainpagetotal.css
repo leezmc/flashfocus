@@ -1,0 +1,273 @@
+/* Setting fade transition and default settings */
+body {
+    color: #000;
+    background-color: #f4f4f4;
+    transition: background-color 1s ease;
+  }
+  
+  /* panel styles */
+  .panel {
+    /* min height incase content is higher than window height */
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: sans-serif;
+    /* outline: 10px solid hotpink; */
+    /* turn above on to see the edge of panels */
+  }
+  
+  /* colours */
+  .color-violet {
+    background-color: #7A4EAB;
+  }
+  .color-indigo {
+    background-color: #4332CF;
+  }
+  .color-blue {
+    background-color: #2F8FED;
+  }
+  .color-green {
+    background-color: #4DCF42;
+  }
+  .color-yellow {
+    background-color: #FAEB33;
+  }
+  .color-orange {
+    background-color: #F19031;
+  }
+  .color-red {
+    background-color: #F2293A;
+  }
+  
+  /* styling for demo, can ignore */
+  body {
+    text-align: center;
+    font-size: 120%;
+    line-height: 1.618;
+  }
+  h1, h2 {
+    font-size: 3em;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+  }
+  p {
+    max-width: 30em;
+    margin-bottom: 1.618em;
+  }
+  a {
+    color: #4332CF;
+  }
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+h1{
+  text-align: center;
+}
+
+body{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1rem;
+    background-color: #d8ffd6;
+}
+
+button{
+  padding: 8px;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background: whitesmoke;
+}
+
+button:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.container{
+  width: 1280px;
+  margin: auto;
+}
+
+header{background-color: #d8ffd6;}
+
+#header{
+  text-align: center;
+  padding-top: 8%;
+}
+
+#header button{
+  font-family: inherit;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+#create_card{
+  display: none;
+  width: 370px;
+  margin:auto;
+  padding: 20px;
+  margin-top: 10px;
+  background: whitesmoke;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
+}
+
+#create_card h2{
+  color: black;
+  text-align: center;
+}
+
+#create_card textarea{
+  width: 100%;
+  border-radius: 5px;
+  font-family: inherit;
+  border: 1px solid lightgray;
+  resize: none;
+}
+
+#create_card button{width: fit-content;}
+
+#flashcards{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+  padding: 0px 10px;
+}
+
+.flashcard{
+  width: 370px;
+  height: 200px;
+  word-wrap: break-word;
+  margin: 10px; 
+  background:#fff;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
+  position: relative;
+}
+
+.flashcard h2{font-size: 1rem;}
+
+.fa-minus{
+  top: 3%;
+  right: 2%;
+  position: absolute;
+  color: #1a1a1a;
+  transition: 0.3s ease-out;
+}
+
+.fa-minus:hover{color: #d8ffd6;}
+
+@media(max-width:1280px){
+  .container{width: 100%;}
+}
+
+@media(max-width:768px){
+  .flashcard{margin: auto;}
+
+  .flashcard{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media(max-width:480px){
+  #header{
+    padding: 20px;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #create_card{width: 95%;}
+
+  .flashcard{width: 100%;}
+
+}
+
+
+.pmt-page {
+    background-color: rgb(230, 187, 187);
+
+}
+
+/* Start Stop and Reset Buttons*/
+.button-1 {
+    border: 0;
+    cursor: pointer;
+    background: #FCFCFD;
+    padding: 0 44px;
+    font-size: 18px;
+    border-radius: 4px;
+    color: #36395a;
+    :hover {
+    transform: translateY(-2px);
+    }
+  }
+  .button-1:hover {
+    background-color: #dee3ec;
+    color: #fff;
+  }
+
+/* Pomodoro Short Break and Long Break buttons*/
+  .button-2 {
+    border: none;
+    color: rgb(255, 255, 255);
+    margin: 0px;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 2px 12px;
+    height: 28px;
+    cursor: pointer;
+    background: none;
+    box-shadow: none;
+    font-weight: 300;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+  }
+  .button-2:hover {
+    background-color: #dee3ec;
+    color: #fff;
+  }
+
+/*Timer*/
+.displaytime {
+    font-size: 50px;
+    color: white;
+    font-weight: 800;
+}
+
+.jc-center {
+    justify-content: center;
+}
+.ta-center {
+    text-align: center;
+}
+
+.longshort {
+   border-radius: 25px;
+   justify-content: center;
+   align-items: center;
+   padding-top: 2%;
+   margin: 0 auto;
+
+}
+
+/* Timer Clock and Buttons*/
+.fulltime {
+    border-radius: 25px;
+   justify-content: center;
+   width: 400px;
+   height: 125px;
+   padding-top: 20%;
+   margin: 0 auto;
+   align-items: center;
+}
