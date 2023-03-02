@@ -2,6 +2,7 @@ const startButton = document.getElementById("start");
 const stopButton = document.getElementById("stop");
 const resetButton = document.getElementById("reset");
 const timerDisplay = document.getElementById("timertime");
+const timerDisplay2 = document.getElementById("time");
 const shortBreakBtn = document.getElementById("short-break-btn");
 const longBreakBtn = document.getElementById("long-break-btn");
 const pomodoroBtn = document.getElementById("pomodoro-btn");
@@ -69,4 +70,5 @@ function displayTime() {
   let minutes = Math.floor(seconds / 60);
   let remainingSeconds = seconds % 60;
   timerDisplay.innerHTML = `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+  timerDisplay2.innerHTML = `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
 }
