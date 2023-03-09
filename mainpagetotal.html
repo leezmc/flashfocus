@@ -70,7 +70,37 @@
 <script src="flashcards.js"></script>
 </div>
 <div class="panel" data-color="indigo">
-  <h2>GPA Calculator</h2>
+  <head>
+	<title>GPA Calculator</title>
+	<link rel="stylesheet" type="text/css" href="gpacalc.css">
+</head>
+<body>
+	<h2>GPA Calculator</h2>
+	<form>
+		<label for="credits">Credits:</label>
+		<input type="number" id="credits" name="credits" min="1" max="5">
+		<label for="grade">Grade:</label>
+		<select id="grade" name="grade">
+			<option value="4.0">A</option>
+			<option value="3.7">A-</option>
+			<option value="3.3">B+</option>
+			<option value="3.0">B</option>
+			<option value="2.7">B-</option>
+			<option value="2.3">C+</option>
+			<option value="2.0">C</option>
+			<option value="1.7">C-</option>
+			<option value="1.3">D+</option>
+			<option value="1.0">D</option>
+			<option value="0.7">D-</option>
+			<option value="0.0">F</option>
+		</select>
+		<button type="button" onclick="calculate()">Add Class</button>
+	</form>
+	<div id="classes"></div>
+	<div id="gpa"></div>
+
+	<script src="gpacalc.js"></script>
+</body>
 </div>
 <div class="panel" data-color="blue">
   <h2>Mind Map</h2>
