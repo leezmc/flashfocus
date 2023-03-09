@@ -238,3 +238,8 @@ header{background-color: #d8ffd6;}
 .maintitle {
   font-size: 72px;
 }
+
+
+.buttonflash {
+  border: 4px solid rgb(255, 255, 255);
+}
