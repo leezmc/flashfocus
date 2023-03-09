@@ -20,7 +20,7 @@ button{
   cursor: pointer;
   border: 1px solid lightgray;
   border-radius: 5px;
-  background: whitesmoke;
+  background: rgb(132, 224, 125);
 }
 
 button:hover{
@@ -50,7 +50,7 @@ header{background-color: #d8ffd6;}
   margin:auto;
   padding: 20px;
   margin-top: 10px;
-  background: whitesmoke;
+  background: #a4e09e;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
 }
 
