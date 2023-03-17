@@ -1,72 +1,95 @@
-var contentArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+// Get references to DOM elements
+const flashcards = document.getElementById("flashcards");
+const question = document.getElementById("question");
+const answer = document.getElementById("answer");
+const saveCardBtn = document.getElementById("save_card");
+const deleteCardsBtn = document.getElementById("delete_cards");
+const showCardBoxBtn = document.getElementById("show_card_box");
+const closeCardBoxBtn = document.getElementById("close_card_box");
 
-document.getElementById("save_card").addEventListener("click", () => {
-  addFlashcard();
-});
+// Initialize content array
+let contentArray = [];
 
-document.getElementById("delete_cards").addEventListener("click", () => {
-  localStorage.clear();
-  flashcards.innerHTML = '';
-  contentArray = [];
-});
+// Load flashcards from localStorage
+const loadFlashcards = () => {
+  const items = localStorage.getItem("items");
+  if (items) {
+    contentArray = JSON.parse(items);
+    contentArray.forEach(createFlashcard);
+  }
+};
 
-document.getElementById("show_card_box").addEventListener("click", () => {
-  document.getElementById("create_card").style.display = "block";
-});
-
-document.getElementById("close_card_box").addEventListener("click", () => {
-  document.getElementById("create_card").style.display = "none";
-});
-
-flashcardMaker = (text, delThisIndex) => {
+// Create a new flashcard
+const createFlashcard = (flashcard_info) => {
+  // Create DOM elements
   const flashcard = document.createElement("div");
-  const question = document.createElement('h2');
-  const answer = document.createElement('h2');
-  const del = document.createElement('i');
+  const questionElem = document.createElement("h2");
+  const answerElem = document.createElement("h2");
+  const delBtn = document.createElement("i");
 
-  flashcard.className = 'flashcard';
+  // Add classes to elements
+  flashcard.classList.add("flashcard");
+  questionElem.classList.add("question");
+  answerElem.classList.add("answer");
+  delBtn.classList.add("fas", "fa-minus");
 
-  question.setAttribute("style", "border-top:1px solid red; padding: 15px; margin-top:30px");
-  question.textContent = text.my_question;
+  // Set content and styles for elements
+  questionElem.textContent = flashcard_info.my_question;
+  answerElem.textContent = flashcard_info.my_answer;
+  answerElem.style.display = "none";
 
-  answer.setAttribute("style", "text-align:center; display:none; color:red");
-  answer.textContent = text.my_answer;
-
-  del.className = "fas fa-minus";
-  del.addEventListener("click", () => {
-    contentArray.splice(delThisIndex, 1);
-    localStorage.setItem('items', JSON.stringify(contentArray));
-    window.location.reload();
-  })
-
-  flashcard.appendChild(question);
-  flashcard.appendChild(answer);
-  flashcard.appendChild(del);
+  // Add event listeners to elements
+  delBtn.addEventListener("click", () => {
+    const index = contentArray.indexOf(flashcard_info);
+    contentArray.splice(index, 1);
+    localStorage.setItem("items", JSON.stringify(contentArray));
+    flashcard.remove();
+  });
 
   flashcard.addEventListener("click", () => {
-    if(answer.style.display == "none")
-      answer.style.display = "block";
-    else
-      answer.style.display = "none";
-  })
+    answerElem.style.display = answerElem.style.display === "none" ? "block" : "none";
+  });
 
-  document.querySelector("#flashcards").appendChild(flashcard);
-}
+  // Append elements to flashcard
+  flashcard.appendChild(questionElem);
+  flashcard.appendChild(answerElem);
+  flashcard.appendChild(delBtn);
 
-contentArray.forEach(flashcardMaker);
+  // Append flashcard to flashcards container
+  flashcards.appendChild(flashcard);
+};
 
-addFlashcard = () => {
-  const question = document.querySelector("#question");
-  const answer = document.querySelector("#answer");
-
-  let flashcard_info = {
-    'my_question' : question.value,
-    'my_answer'  : answer.value
-  }
-
+// Save a new flashcard
+const saveFlashcard = () => {
+  const flashcard_info = {
+    my_question: question.value,
+    my_answer: answer.value,
+  };
   contentArray.push(flashcard_info);
-  localStorage.setItem('items', JSON.stringify(contentArray));
-  flashcardMaker(contentArray[contentArray.length - 1], contentArray.length - 1);
+  localStorage.setItem("items", JSON.stringify(contentArray));
+  createFlashcard(flashcard_info);
   question.value = "";
   answer.value = "";
-}
+};
+
+// Remove all flashcards
+const removeAllFlashcards = () => {
+  localStorage.clear();
+  flashcards.innerHTML = "";
+  contentArray = [];
+};
+
+// Show/hide the create card box
+const toggleCreateCardBox = () => {
+  const createCardBox = document.getElementById("create_card");
+  createCardBox.style.display = createCardBox.style.display === "none" ? "block" : "none";
+};
+
+// Add event listeners to buttons
+saveCardBtn.addEventListener("click", saveFlashcard);
+deleteCardsBtn.addEventListener("click", removeAllFlashcards);
+showCardBoxBtn.addEventListener("click", toggleCreateCardBox);
+closeCardBoxBtn.addEventListener("click", toggleCreateCardBox);
+
+// Load initial flashcards
+loadFlashcards();
