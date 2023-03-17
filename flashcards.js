@@ -2,10 +2,10 @@
 const flashcards = document.getElementById("flashcards");
 const question = document.getElementById("question");
 const answer = document.getElementById("answer");
-const saveCardBtn = document.getElementById("save_card");
-const deleteCardsBtn = document.getElementById("delete_cards");
-const showCardBoxBtn = document.getElementById("show_card_box");
-const closeCardBoxBtn = document.getElementById("close_card_box");
+const saveCardButton = document.getElementById("save_card");
+const deleteCardsButton = document.getElementById("delete_cards");
+const showCardBoxButton = document.getElementById("show_card_box");
+const closeCardBoxButton = document.getElementById("close_card_box");
 
 // Initialize content array
 let contentArray = [];
@@ -86,10 +86,10 @@ const toggleCreateCardBox = () => {
 };
 
 // Add event listeners to buttons
-saveCardBtn.addEventListener("click", saveFlashcard);
-deleteCardsBtn.addEventListener("click", removeAllFlashcards);
-showCardBoxBtn.addEventListener("click", toggleCreateCardBox);
-closeCardBoxBtn.addEventListener("click", toggleCreateCardBox);
+saveCardButton.addEventListener("click", saveFlashcard);
+deleteCardsButton.addEventListener("click", removeAllFlashcards);
+showCardBoxButton.addEventListener("click", toggleCreateCardBox);
+closeCardBoxButton.addEventListener("click", toggleCreateCardBox);
 
 // Load initial flashcards
 loadFlashcards();
