@@ -1,6 +1,7 @@
 const taskTitleInput = document.getElementById('task-title');
 const taskDueDateInput = document.getElementById('task-due-date');
 const addTaskButton = document.getElementById('add-task-btn');
+const completeTasksButton = document.getElementById('complete-tasks-btn');
 const taskList = document.getElementById('task-list');
 
 let tasks = [];
@@ -11,19 +12,24 @@ function renderTasks() {
     const taskItem = document.createElement('li');
     const taskTitle = document.createElement('span');
     const taskDueDate = document.createElement('span');
-    const deleteTaskButton = document.createElement('button');
+    const completeTaskCheckbox = document.createElement('input');
 
     taskTitle.innerText = task.title;
     const dueDate = new Date(task.dueDate);
     const formattedDate = `${dueDate.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', hour12: true})} - ${dueDate.toLocaleString('en-US', {month: 'numeric', day: 'numeric'})}`;
     taskDueDate.innerText = formattedDate;
-    deleteTaskButton.innerText = 'Delete';
-    deleteTaskButton.classList.add('delete-task-btn');
-    deleteTaskButton.dataset.index = index;
+    completeTaskCheckbox.type = 'checkbox';
+    completeTaskCheckbox.checked = task.completed;
+    completeTaskCheckbox.dataset.index = index;
 
+    if (task.completed) {
+      taskTitle.style.textDecoration = 'line-through';
+      taskDueDate.style.textDecoration = 'line-through';
+    }
+
+    taskItem.appendChild(completeTaskCheckbox);
     taskItem.appendChild(taskTitle);
     taskItem.appendChild(taskDueDate);
-    taskItem.appendChild(deleteTaskButton);
     taskList.appendChild(taskItem);
   });
 }
@@ -34,25 +40,23 @@ function addTask() {
   if (!title || !dueDate) {
     return;
   }
-  const newTask = { title, dueDate };
+  const newTask = { title, dueDate, completed: false };
   tasks.push(newTask);
   taskTitleInput.value = '';
   taskDueDateInput.value = '';
   renderTasks();
+
 }
 
-function deleteTask(index) {
-  tasks.splice(index, 1);
+function completeTask(event) {
+  const index = parseInt(event.target.dataset.index);
+  tasks[index].completed = event.target.checked;
   renderTasks();
 }
 
 addTaskButton.addEventListener('click', addTask);
+completeTasksButton.addEventListener('click', renderTasks);
 
-taskList.addEventListener('click', (event) => {
-  if (event.target.classList.contains('delete-task-btn')) {
-    const index = parseInt(event.target.dataset.index);
-    deleteTask(index);
-  }
-});
+taskList.addEventListener('change', completeTask);
 
 renderTasks();
