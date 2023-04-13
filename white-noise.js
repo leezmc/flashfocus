@@ -1,52 +1,62 @@
+const taskTitleInput = document.getElementById('task-title');
+const taskDueDateInput = document.getElementById('task-due-date');
+const addTaskButton = document.getElementById('add-task-btn');
+const completeTasksButton = document.getElementById('complete-tasks-btn');
+const taskList = document.getElementById('task-list');
 
-const startBtn = document.getElementById("start-btn");
-const stopBtn = document.getElementById("stop-btn");
-const volume = document.getElementById("volume");
-const type = document.getElementById("type");
-const audio = document.getElementById("audio");
-const source = document.getElementById("source");
+let tasks = [];
 
+function renderTasks() {
+  taskList.innerHTML = '';
+  tasks.forEach((task, index) => {
+    const taskItem = document.createElement('li');
+    const taskTitle = document.createElement('span');
+    const taskDueDate = document.createElement('span');
+    const completeTaskCheckbox = document.createElement('input');
 
-let noiseType = type.value;
-let noiseURL = getNoiseURL(noiseType);
+    taskTitle.innerText = task.title;
+    const dueDate = new Date(task.dueDate);
+    const formattedDate = `${dueDate.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', hour12: true})} - ${dueDate.toLocaleString('en-US', {month: 'numeric', day: 'numeric'})}`;
+    taskDueDate.innerText = formattedDate;
+    completeTaskCheckbox.type = 'checkbox';
+    completeTaskCheckbox.checked = task.completed;
+    completeTaskCheckbox.dataset.index = index;
 
+    if (task.completed) {
+      taskTitle.style.textDecoration = 'line-through';
+      taskDueDate.style.textDecoration = 'line-through';
+    }
 
-source.setAttribute("src", noiseURL);
-audio.volume = volume.value;
-
-
-type.addEventListener("change", function() {
-  noiseType = type.value;
-  noiseURL = getNoiseURL(noiseType);
-  source.setAttribute("src", noiseURL);
-  audio.load();
-});
-
-
-volume.addEventListener("change", function() {
-  audio.volume = volume.value;
-});
-
- 
-startBtn.addEventListener("click", function() {
-  audio.play();
-});
-
-
-stopBtn.addEventListener("click", function() {
-  audio.pause();
-});
-
-
-function getNoiseURL(type) {
-  switch (type) {
-    case "white":
-      return "white_noise.wav";
-    case "pink":
-      return "pink_noise.wav";
-    case "brown":
-      return "brown_noise.wav";
-    default:
-      return "";
-  }
+    taskItem.appendChild(completeTaskCheckbox);
+    taskItem.appendChild(taskTitle);
+    taskItem.appendChild(taskDueDate);
+    taskList.appendChild(taskItem);
+  });
 }
+
+function addTask() {
+  const title = taskTitleInput.value;
+  const dueDate = taskDueDateInput.value;
+  if (!title || !dueDate) {
+    return;
+  }
+  const newTask = { title, dueDate, completed: false };
+  tasks.push(newTask);
+  taskTitleInput.value = '';
+  taskDueDateInput.value = '';
+  renderTasks();
+
+}
+
+function completeTask(event) {
+  const index = parseInt(event.target.dataset.index);
+  tasks[index].completed = event.target.checked;
+  renderTasks();
+}
+
+addTaskButton.addEventListener('click', addTask);
+completeTasksButton.addEventListener('click', renderTasks);
+
+taskList.addEventListener('change', completeTask);
+
+renderTasks();
