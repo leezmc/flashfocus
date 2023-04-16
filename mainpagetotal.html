@@ -106,17 +106,23 @@
 </body>
 </div>
 
+<!--To Do List-->
 <div class="panel" data-color="yellow">
-  <h1>To-Do List</h1>
-  <form>
-    <label for="task-title">Title:</label>
-    <input type="text" id="task-title" name="task-title" required>
+  <div class="todo-list">
+    <h2>My Todo List</h2>
+    <form>
+      <input type="text" id="task-title" placeholder="Task" />
+      <input type="datetime-local" id="task-due-date" />
+      <button type="button" id="add-task-btn">Add Task</button>
+    </form>
+    <ul id="task-list"></ul>
+    <button type="button" id="delete-tasks-btn">Delete Tasks</button>
+  </div>
+<script src="todo.js"></script> 
+</div>
 
-    <label for="task-due-date">Due Date:</label>
-    <input type="datetime-local" id="task-due-date" name="task-due-date" required>
 
-    <button type="button" id="add-task-btn">Add Task</button>
-  </form>
+  
 
   
  
