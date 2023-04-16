@@ -1,35 +1,50 @@
 const taskTitleInput = document.getElementById('task-title');
 const taskDueDateInput = document.getElementById('task-due-date');
 const addTaskButton = document.getElementById('add-task-btn');
-const completeTasksButton = document.getElementById('complete-tasks-btn');
+const deleteCompletedTasksButton = document.getElementById('delete-completed-tasks-btn');
 const taskList = document.getElementById('task-list');
 
 let tasks = [];
 
 function renderTasks() {
   taskList.innerHTML = '';
-  tasks.forEach((task, index) => {
+  tasks.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));  tasks.forEach((task, index) => {
     const taskItem = document.createElement('li');
     const taskTitle = document.createElement('span');
     const taskDueDate = document.createElement('span');
-    const completeTaskCheckbox = document.createElement('input');
+    const deleteTaskButton = document.createElement('button');
+    const checkbox = document.createElement('input');
 
     taskTitle.innerText = task.title;
     const dueDate = new Date(task.dueDate);
     const formattedDate = `${dueDate.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', hour12: true})} - ${dueDate.toLocaleString('en-US', {month: 'numeric', day: 'numeric'})}`;
     taskDueDate.innerText = formattedDate;
-    completeTaskCheckbox.type = 'checkbox';
-    completeTaskCheckbox.checked = task.completed;
-    completeTaskCheckbox.dataset.index = index;
+    deleteTaskButton.innerText = 'Delete';
+    deleteTaskButton.classList.add('delete-task-btn');
+    deleteTaskButton.dataset.index = index;
+
+    checkbox.type = 'checkbox';
+    checkbox.checked = task.completed;
+    checkbox.addEventListener('change', () => {
+      task.completed = checkbox.checked;
+      if (checkbox.checked) {
+        taskTitle.style.textDecoration = 'line-through';
+        taskDueDate.style.textDecoration = 'line-through';
+      } else {
+        taskTitle.style.textDecoration = 'none';
+        taskDueDate.style.textDecoration = 'none';
+      }
+    });
 
     if (task.completed) {
       taskTitle.style.textDecoration = 'line-through';
       taskDueDate.style.textDecoration = 'line-through';
     }
 
-    taskItem.appendChild(completeTaskCheckbox);
+    taskItem.appendChild(checkbox);
     taskItem.appendChild(taskTitle);
     taskItem.appendChild(taskDueDate);
+    taskItem.appendChild(deleteTaskButton);
     taskList.appendChild(taskItem);
   });
 }
@@ -45,18 +60,33 @@ function addTask() {
   taskTitleInput.value = '';
   taskDueDateInput.value = '';
   renderTasks();
-
 }
 
-function completeTask(event) {
-  const index = parseInt(event.target.dataset.index);
-  tasks[index].completed = event.target.checked;
+function completeTasks() {
+  tasks.forEach((task) => {
+    task.completed = true;
+    const taskItem = taskList.querySelector(`[data-index="${tasks.indexOf(task)}"]`);
+    const taskTitle = taskItem.querySelector('span:first-child');
+    const taskDueDate = taskItem.querySelector('span:nth-child(2)');
+    taskTitle.style.textDecoration = 'line-through';
+    taskDueDate.style.textDecoration = 'line-through';
+  });
+}
+
+function deleteCompletedTasks() {
+  tasks = tasks.filter((task) => !task.completed);
   renderTasks();
 }
 
 addTaskButton.addEventListener('click', addTask);
-completeTasksButton.addEventListener('click', renderTasks);
+deleteCompletedTasksButton.addEventListener('click', deleteCompletedTasks);
 
-taskList.addEventListener('change', completeTask);
+taskList.addEventListener('click', (event) => {
+  if (event.target.classList.contains('delete-task-btn')) {
+    const index = parseInt(event.target.dataset.index);
+    tasks.splice(index, 1);
+    renderTasks();
+  }
+});
 
 renderTasks();
