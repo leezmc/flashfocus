@@ -273,3 +273,74 @@ header{background-color: #d8ffd6;}
   background: #04AA6D;
   cursor: pointer;
 }
+
+/* TODO LIST*/
+.todo-list {
+  font-family: Arial, sans-serif;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.todo-list h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.todo-list form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.todo-list form input[type="text"],
+.todo-list form input[type="datetime-local"],
+.todo-list form button {
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.todo-list form input[type="text"],
+.todo-list form input[type="datetime-local"] {
+  flex-grow: 1;
+}
+
+.todo-list form button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.todo-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.todo-list li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.todo-list li span {
+  font-size: 16px;
+  margin-right: auto;
+}
+
+.todo-list button {
+  background-color: #c2c2c2;
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.todo-list button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
