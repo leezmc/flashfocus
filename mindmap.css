@@ -1,0 +1,23 @@
+#mindmap-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .node {
+    background-color: #ECECEC;
+    border: 1px solid #999999;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .child-node {
+    margin-top: 10px;
+    background-color: #F8F8F8;
+    border: 1px solid #CCCCCC;
+    padding: 10px;
+    text-align: center;
+  }
+  
