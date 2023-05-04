@@ -121,35 +121,31 @@
 <script src="todo.js"></script> 
 </div>
 
-
-  
-
 <!-- file converter -->
-  <div class="panel" data-color="yellow">
-    <head>
-      <title>File Converter Tool</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-      <h1>File Converter Tool</h1>
-      <p>Select a file to convert:</p>
-      <input type="file" id="fileInput">
-      <p>Select output format:</p>
-      <select id="outputFormat">
-        <option value="pdf">PDF</option>
-        <option value="docx">DOCX</option>
-        <option value="txt">TXT</option>
-        <option value="html">HTML</option>
-      </select>
-      <button onclick="convertFile()">Convert</button>
-      <p>Converted file:</p>
-      <a href="#" download id="downloadLink"></a>
-      <script src="script.js"></script>
-    </body>
-    
-  </div>
+<div class="panel" data-color="yellow">
+  <head>
+    <title>File Converter Tool</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="fileconverter.css">
+  </head>
+  <body>
+    <h1>File Converter Tool</h1>
+    <p>Select a file to convert:</p>
+    <input type="file" id="fileInput">
+    <p>Select output format:</p>
+    <select id="outputFormat">
+      <option value="pdf">PDF</option>
+      <option value="docx">DOCX</option>
+      <option value="txt">TXT</option>
+      <option value="html">HTML</option>
+    </select>
+    <button onclick="convertFile()">Convert</button>
+    <p>Converted file:</p>
+    <a href="#" download id="downloadLink"></a>
+    <script src="fileconverter.js"></script>
+  </body>
+</div>
 
 <!--Study Alert Generator-->
 <div class="panel" data-color="indigo">
