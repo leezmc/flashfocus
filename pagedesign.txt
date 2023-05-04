@@ -1,0 +1,102 @@
+--PAGE DESIGN OUTLINE--
+
+"FEATURE ORDER"
+  1. Pomodoro Timer
+  2. TODO List
+  3. Flashcards
+  4. Mindmap
+  5. Calendar
+  6. Alerts
+  7. File Converter
+  8. GPA Calculator
+
+"FEATURE DESIGN STATEMENT"
+  Each feature should provide a minimal and clean aesthetic to limit distractions and improve user usability. 
+  Common elements should be shared amongst all features, with each feature possibly containing special flairs
+
+"BUTTON DESIGN" 
+  Buttons should follow feauture designs. 
+
+  <button class="button1" role="button">Button 1</button>
+  Button 1 (Major Feature Buttons):
+    .button1{
+      border: 0;
+      cursor: pointer;
+      transition: box-shadow 0.15s ease,transform 0.15s ease;
+      will-change: box-shadow,transform;
+      background: transparent;
+      box-shadow: 0px 2px 4px rgb(45 35 66 / 10%), 0px 7px 13px -3px rgb(45 35 66 / 10%);
+      height: 48px;
+      padding: 0 32px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 6px;
+      color: white;
+      transition: box-shadow 0.15s ease,transform 0.15s ease;
+    }
+
+      .button1:hover {
+          box-shadow: 0px 4px 8px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%);
+          transform: translateY(-2px);
+      }
+
+      .button1:active{
+          box-shadow: inset 0px 3px 7px #ffffff;
+          transform: translateY(2px);
+      }
+                    
+  Button 2 (Option+ Buttons):
+  <button class="button2" role="button">Button 2</button>
+    .button2{
+      border: 0;
+      cursor: pointer;
+      transition: box-shadow 0.15s ease,transform 0.15s ease;
+      will-change: box-shadow,transform;
+      background: transparent;
+      box-shadow: 0px 2px 4px rgb(45 35 66 / 10%), 0px 7px 13px -3px rgb(45 35 66 / 10%);
+      height: 24px;
+      padding: 0 16px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      color: white;
+      transition: box-shadow 0.15s ease,transform 0.15s ease;
+    }
+
+      .button2:hover {
+          box-shadow: 0px 4px 8px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%);
+          transform: translateY(-1px);
+      }
+
+      .button2:active{
+          box-shadow: inset 0px 1px 5px #ffffff;
+          transform: translateY(1px);
+      }
+
+
+
+"COLOR PALLETE"
+  Colors should be light pastel colored, lines should be white. Black and darker colors should be used sparingly. 
+  Colors should not interfere with readability.
+  White should be primarily used in order to pair with night mode feature.
+
+"FONT & SIZING"
+  Large Text: 48px
+  Medium Text: 24px
+  Small Text: 18px
+  Font: Arial Rounded/Arial Rounded Bold (Bold, round, nataural) 
+  
+    <link href="https://www.dafontfree.net/embed/YXJpYWwtcm91bmRlZC1yZWd1bGFyJmRhdGEvMS9hLzIwL3VuaWNvZGUuYXJpYWxyLnR0Zg" rel="stylesheet" type="text/css"/> >> HTML
+    font-family: 'arial-rounded-regular', sans-serif;
+
+    <link href="https://fonts.cdnfonts.com/css/arial-rounded-mt-bold" rel="stylesheet">  >>HTML
+    <style>@import url('https://fonts.cdnfonts.com/css/arial-rounded-mt-bold');</style>  >> HTML
+    font-family: 'Arial Rounded MT Bold', sans-serif;  >> CSS
+                                                
+                
+
+                
+
+"ADDITIONAL FEATURES"
+  1. Click to Navigate (sidebar/keyboard controls) / back to top
+  2. Night mode toggle
